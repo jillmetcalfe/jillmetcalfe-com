@@ -37,3 +37,14 @@ Project page: jillmetcalfe.com (`a59d166b60be4e409521263e36a9a484`).
 
 ## Conventions
 - Update `CHANGELOG.md` in plain language when something visible changes.
+
+## Text editor (Jill edits words outside the code)
+Jill edits the site's words in a private claude.ai artifact (URL in Claude's memory, `site-text-editor`).
+Each text block is a document in its `blocks` collection: `live` = what's on the site now, `text` = Jill's version.
+When she says **"apply my text edits"**:
+1. Read all `blocks`; the changed ones are where `text` ≠ `live`.
+2. In `index.html` / `contact/index.html`, replace the `live` text with `text`. List blocks: one `<li>` per line
+   (`t-exercises`: words before the first colon go in `<strong>`). Takeaways get curly quotes added by the HTML.
+   If Jill rewrote a DRAFT block, remove its DRAFT markers.
+3. Commit, push, check the live site, then set each applied block's `live` to its new `text`.
+If code changes add or remove text on the page, add or remove the matching block too.

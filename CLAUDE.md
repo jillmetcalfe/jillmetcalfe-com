@@ -6,7 +6,9 @@
 
 ## What this is
 The landing page for Jill's **AI staff training** business (workshops for teams, not executive coaching).
-- `index.html`: the whole page. `static/style.css`: all styling. `404.html`: page-not-found.
+- `index.html`: the landing page. `contact/index.html`: the contact page (embedded Notion form).
+  `static/style.css`: all styling. `404.html`: page-not-found.
+- **Don't link to the blog.** Jill decided on 2026-10-13 that the business and the blog aren't connected.
 - **No framework, no build step, no CSS framework.** Same rule as the blog. Don't add one.
 - Hosted on GitHub Pages from `main` (repo `jillmetcalfe/jillmetcalfe-com`), custom domain in `CNAME`.
 - Cloudflare proxies the domain. A redirect rule sends the blog's old paths (`/blog/`, `/bookshelf/`,

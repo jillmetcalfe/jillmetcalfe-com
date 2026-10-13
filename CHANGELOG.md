@@ -11,3 +11,4 @@ Plain-language log of changes people can see.
 - Added the Notion contact form on its own page, jillmetcalfe.com/contact/, with an "open in a new tab" link as a backup. Every "Get in touch" button goes there.
 - Removed the link to the blog: the business and the blog are separate.
 - The two workshop boxes are now shaded (the 3-hour one tinted teal) so they stand apart on phones.
+- **Live at https://jillmetcalfe.com.** Cloudflare now sends only the blog's old addresses to blog.jillmetcalfe.com, and www goes to the main address. (Plan `landing-page` fully carried out and removed.)

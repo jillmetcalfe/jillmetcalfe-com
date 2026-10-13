@@ -1,2 +1,291 @@
-/* All styling for jillmetcalfe.com. Design tokens come first so the
-   whole look can be changed in one place once branding is decided. */
+/* All styling for jillmetcalfe.com.
+
+   PLACEHOLDER LOOK: editorial, in the spirit of Every.to, with a teal accent.
+   Final branding is still to be decided, so every colour, font and size lives
+   in the variables below. Re-skinning the site means editing this first block. */
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/static/fonts/newsreader.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/static/fonts/newsreader-italic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/static/fonts/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Colours */
+  --paper: #fbfaf7;
+  --paper-raised: #ffffff;
+  --ink: #1b1d1c;
+  --muted: #5d625f;
+  --rule: #e3e1db;
+  --accent: #0f766e;        /* teal */
+  --accent-ink: #f4faf9;    /* text on top of the accent */
+  --accent-soft: #e5f1ef;
+
+  /* Type */
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Spacing (8px scale) */
+  --s-1: 8px;  --s-2: 16px; --s-3: 24px; --s-4: 32px;
+  --s-6: 48px; --s-8: 64px; --s-12: 96px;
+
+  /* Widths */
+  --text-width: 680px;
+  --page-width: 1080px;
+
+  --radius: 6px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131615;
+    --paper-raised: #1a1e1d;
+    --ink: #e9ebe8;
+    --muted: #a3aaa6;
+    --rule: #2c3230;
+    --accent: #4fb3a7;
+    --accent-ink: #0d1413;
+    --accent-soft: #1b2b29;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s-2);
+}
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 var(--s-2); }
+ul { margin: 0 0 var(--s-2); padding-left: 1.2em; }
+li { margin-bottom: 4px; }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Layout ---------- */
+
+.wrap {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--s-2);
+}
+@media (min-width: 720px) { .wrap { padding: 0 var(--s-4); } }
+
+.narrow { max-width: var(--text-width); }
+
+section { padding: var(--s-8) 0; border-top: 1px solid var(--rule); }
+section.hero { border-top: 0; padding-top: var(--s-6); }
+
+/* Small uppercase label above each section heading */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--s-2);
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ---------- Header and footer ---------- */
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding-top: var(--s-3);
+  padding-bottom: var(--s-3);
+}
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header nav a { font-size: 0.95rem; font-weight: 500; }
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--s-4) 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3); justify-content: space-between; }
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+}
+.button:hover { filter: brightness(1.08); }
+
+.hero .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin-top: var(--s-4); }
+.language-note { font-size: 0.95rem; color: var(--muted); margin: 0; }
+
+/* ---------- Workshop cards ---------- */
+
+.cards {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+@media (min-width: 860px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+.card {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s-4) var(--s-3);
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 720px) { .card { padding: var(--s-4); } }
+.card.featured { border-top: 4px solid var(--accent); }
+
+.card .length {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s-1);
+}
+.card h4 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: var(--s-3) 0 var(--s-1);
+}
+.card .takeaway {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  border-left: 3px solid var(--accent);
+  padding-left: var(--s-2);
+  margin: var(--s-3) 0;
+}
+.card .card-price {
+  margin-top: auto;
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+}
+.card .card-price span { font-weight: 400; color: var(--muted); }
+
+/* ---------- How it works ---------- */
+
+.facts {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+@media (min-width: 720px) { .facts { grid-template-columns: repeat(3, 1fr); } }
+.facts h3 { font-size: 1.25rem; }
+.facts p { color: var(--muted); }
+
+/* ---------- Pricing ---------- */
+
+.price-block {
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: var(--s-4) var(--s-3);
+  margin-top: var(--s-3);
+}
+@media (min-width: 720px) { .price-block { padding: var(--s-6); } }
+.price {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 var(--s-1);
+}
+.price small { font-family: var(--sans); font-size: 1rem; color: var(--muted); }
+.chf-hint { color: var(--muted); font-size: 0.95rem; }
+
+.examples { width: 100%; border-collapse: collapse; margin-top: var(--s-3); font-size: 0.95rem; }
+.examples th, .examples td { text-align: left; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.examples th { font-weight: 600; }
+.examples td:last-child, .examples th:last-child { text-align: right; }
+
+/* ---------- About ---------- */
+
+.credentials {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s-3);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.credentials li { padding: 6px 0; border-bottom: 1px solid var(--rule); }
+
+/* ---------- Contact ---------- */
+
+.form-frame {
+  width: 100%;
+  min-height: 900px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  margin-top: var(--s-3);
+}
+
+/* ---------- 404 ---------- */
+
+.not-found { max-width: var(--text-width); margin: var(--s-12) auto; padding: 0 var(--s-2); }

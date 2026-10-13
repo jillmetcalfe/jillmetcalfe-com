@@ -285,6 +285,7 @@ section.hero { border-top: 0; padding-top: var(--s-6); }
   background: var(--paper-raised);
   margin-top: var(--s-3);
 }
+.form-fallback { font-size: 0.9rem; color: var(--muted); margin-top: var(--s-1); }
 
 /* ---------- 404 ---------- */
 

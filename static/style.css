@@ -36,6 +36,8 @@
   --accent: #0f766e;        /* teal */
   --accent-ink: #f4faf9;    /* text on top of the accent */
   --accent-soft: #e5f1ef;
+  --card: #f0eee8;           /* shaded workshop box */
+  --card-featured: #e2efec;  /* the 3-hour box, tinted teal */
 
   /* Type */
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -63,6 +65,8 @@
     --accent: #4fb3a7;
     --accent-ink: #0d1413;
     --accent-soft: #1b2b29;
+    --card: #1c201f;
+    --card-featured: #182a27;
   }
 }
 
@@ -182,13 +186,13 @@ section.hero { border-top: 0; padding-top: var(--s-6); }
 
 .cards {
   display: grid;
-  gap: var(--s-3);
+  gap: var(--s-4);
   margin-top: var(--s-4);
 }
-@media (min-width: 860px) { .cards { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 860px) { .cards { grid-template-columns: 1fr 1fr; gap: var(--s-3); } }
 
 .card {
-  background: var(--paper-raised);
+  background: var(--card);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   padding: var(--s-4) var(--s-3);
@@ -196,7 +200,7 @@ section.hero { border-top: 0; padding-top: var(--s-6); }
   flex-direction: column;
 }
 @media (min-width: 720px) { .card { padding: var(--s-4); } }
-.card.featured { border-top: 4px solid var(--accent); }
+.card.featured { background: var(--card-featured); border-top: 4px solid var(--accent); }
 
 .card .length {
   font-size: 0.85rem;

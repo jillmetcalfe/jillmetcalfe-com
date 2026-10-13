@@ -10,3 +10,4 @@ Plain-language log of changes people can see.
 - Fonts are stored on the site itself, so no visitor data goes to Google.
 - Added the Notion contact form on its own page, jillmetcalfe.com/contact/, with an "open in a new tab" link as a backup. Every "Get in touch" button goes there.
 - Removed the link to the blog: the business and the blog are separate.
+- The two workshop boxes are now shaded (the 3-hour one tinted teal) so they stand apart on phones.

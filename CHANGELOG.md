@@ -2,6 +2,9 @@
 
 Plain-language log of changes people can see.
 
+## 2026-11-26
+- Jill's own wording now on the page for: the intro, the workshops intro, the AI Foundations summary, what the 3-hour workshop covers (framework now called BRIEF; safety/policy line removed), the How it works heading and two of its points, both About paragraphs, and the Google description.
+
 ## 2026-10-13
 - Started the landing page: an empty page skeleton, ready for design and words.
 - Added the page layout and a placeholder look (Every.to-style, teal accent). Works on phones.
